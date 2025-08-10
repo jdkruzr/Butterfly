@@ -17,7 +17,7 @@ if (keystorePropertiesFile.exists()) {
 android {
     namespace = "dev.linwood.butterfly"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -86,4 +86,15 @@ android {
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    // Onyx SDK for e-ink device optimization
+    // TODO: Re-enable these dependencies once we resolve the repository issues
+    // implementation("com.onyx.android.sdk:onyxsdk-device:1.1.11")
+    // implementation("com.onyx.android.sdk:onyxsdk-pen:1.2.1")
+    
+    // Required transitive dependencies for Onyx SDK
+    // implementation("commons-io:commons-io:2.5")
+    // implementation("com.tencent:mmkv-static:1.0.15")
 }

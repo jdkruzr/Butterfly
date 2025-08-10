@@ -2,6 +2,15 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        // Onyx SDK repository
+        maven { url = uri("https://jitpack.io") }
+        maven { 
+            url = uri("http://repo.boox.com/repository/maven-public/")
+            isAllowInsecureProtocol = true
+        }
+        // Additional repositories for Onyx SDK dependencies
+        maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots/") }
+        maven { url = uri("https://repo1.maven.org/maven2/") }
     }
 }
 

@@ -14,6 +14,7 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'experiments.dart';
 import 'general.dart';
 import 'connections.dart';
+import 'onyx.dart';
 
 enum SettingsView {
   general,
@@ -23,7 +24,8 @@ enum SettingsView {
   personalization,
   view,
   connections,
-  experiments;
+  experiments,
+  onyx;
 
   bool get isEnabled => this != SettingsView.connections || !kIsWeb;
 
@@ -38,6 +40,7 @@ enum SettingsView {
     SettingsView.view => AppLocalizations.of(context).view,
     SettingsView.connections => AppLocalizations.of(context).connections,
     SettingsView.experiments => AppLocalizations.of(context).experiments,
+    SettingsView.onyx => 'Onyx E-ink',
   };
 
   IconGetter get icon => switch (this) {
@@ -49,6 +52,7 @@ enum SettingsView {
     SettingsView.view => PhosphorIcons.eye,
     SettingsView.connections => PhosphorIcons.cloud,
     SettingsView.experiments => PhosphorIcons.flask,
+    SettingsView.onyx => PhosphorIcons.deviceTablet,
   };
   String get path => '/settings/$name';
 }
@@ -153,6 +157,7 @@ class _SettingsPageState extends State<SettingsPage> {
       SettingsView.view => const ViewSettingsPage(inView: true),
       SettingsView.connections => const ConnectionsSettingsPage(inView: true),
       SettingsView.experiments => const ExperimentsSettingsPage(inView: true),
+      SettingsView.onyx => const OnyxSettingsPage(inView: true),
     };
     return Row(
       crossAxisAlignment: CrossAxisAlignment.stretch,
